@@ -10,7 +10,7 @@ Miner send `login` request after connection successfully established for authori
   "jsonrpc": "2.0",
   "method": "login",
   "params": {
-    "login": "account.miner", // account name/address + miner
+    "login": "account.miner",
     "pass": "x",
     "agent": "node/v2.0.0.1"
   }
