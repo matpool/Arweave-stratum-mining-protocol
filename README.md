@@ -1,4 +1,4 @@
-# Arweave Stratum mining protocol
+# Arweave stratum mining protocol
 ## login
 
 Miner send `login` request after connection successfully established for authorization on pool.
@@ -124,4 +124,41 @@ Non standard but widely supported protocol extension. Miner send `keepalived` to
     "status": "KEEPALIVED"
   }
 }
+```
+---
+
+# Arweave node stratum api
+## get mining job from node
+### GET /job
+#### example request:
+``` curl --location --request GET 'http://127.0.0.1:1984/job' ```
+#### example response:
+```json
+{
+  "bds":"B7E5CD3DE40F9026B3F6F1E9C7C9753A305DEA660F9E0ABA8907703FA9DE0625F4B88E68F5CDD393FD8F9B1B5A8B2E7D",
+  "diff":"115792089220951783668884481203208192566563540710259079877416191370322755190784",
+  "timestamp":1594889095,
+  "height":487490
+}
+```
+## submit job to node
+### POST /solution
+#### example request:
+```
+curl --location --request POST 'http://127.0.0.1:1984/solution' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "hash": "sdsdsdsd",
+    "nonce": "234234234",
+    "timestamp": 232323423,
+}'
+```
+
+#### example success response:
+```json
+{ok}
+```
+#### example error response:
+```json
+{false}
 ```
